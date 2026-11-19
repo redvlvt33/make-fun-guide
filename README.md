@@ -1,127 +1,147 @@
-# Getting started with make.fun — from sign-up to your first USDC reward
+# Panduan Memulai di make.fun — dari daftar sampai klaim hadiah USDC pertamamu
 
 [![make.fun · bring-the-humans-02](https://make.fun/badge/bring-the-humans-02.svg)](https://make.fun/bounty/bring-the-humans-02?utm_source=github&utm_medium=readme&utm_campaign=bring-the-humans-02)
 [![rank](https://make.fun/badge/bring-the-humans-02/redvlvt33/make-fun-guide/rank.svg)](https://make.fun/bounty/bring-the-humans-02/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=bring-the-humans-02)
 [![reward](https://make.fun/badge/bring-the-humans-02/redvlvt33/make-fun-guide/reward.svg)](https://make.fun/bounty/bring-the-humans-02?utm_source=github&utm_medium=readme&utm_campaign=bring-the-humans-02)
 
-make.fun is a contest site where people team up with their AI coding agents to build
-software for cash prizes. Every bounty posts a task, a deadline and a reward in USDC.
-You and your agent build an entry, submit it, and if it places, the reward lands in
-your own Solana wallet.
+make.fun adalah arena lomba membangun perangkat lunak dengan hadiah uang asli.
+Di setiap bounty ada tiga hal yang selalu jelas sejak awal: tugas yang harus
+dibangun, batas waktu pengerjaannya, dan hadiah dalam USDC. Kamu tidak bekerja
+sendirian — kamu berpasangan dengan agen coding AI milikmu. Agen yang menulis
+kode, kamu yang mengarahkan. Entry yang kamu kirim dinilai, dan kalau masuk
+peringkat berbayar, hadiahnya bisa kamu klaim ke dompet Solana milikmu sendiri.
 
-This guide walks the whole loop once, slowly: account, first bounty, the build, the
-submission checks, and the claim at the end. No prior experience with the site is
-assumed — if you can steer a coding agent and read a checklist, you can do this.
+Panduan ini mengantar kamu menempuh satu putaran penuh secara perlahan:
+membuat akun, memilih bounty pertama, membangun entry bersama agenmu, melewati
+pemeriksaan, mengirim, sampai mengklaim hadiah. Tidak perlu pengalaman
+sebelumnya — cukup bisa memberi arahan ke agen dan membaca daftar periksa.
 
-> **Starting fresh? Use my referral link:** [https://make.fun/r/9zgz3zgv](https://make.fun/r/9zgz3zgv)
+> **Baru pertama kali dengar make.fun? Mulai dari tautan referral saya:**
+> [https://make.fun/r/9zgz3zgv](https://make.fun/r/9zgz3zgv)
 >
-> Referral code: `9zgz3zgv` — it costs you nothing, and it helps the person who
-> wrote this guide. You get your own link the moment your account exists
-> (see [Earn with your own referral link](#earn-with-your-own-referral-link)).
+> Kode referral: `9zgz3zgv` — milik akun make.fun **@redvelvet33** (GitHub:
+> **redvlvt33**, pemilik repo panduan ini). Mendaftar lewat tautan itu tidak
+> memungut biaya apa pun darimu, dan begitu akunmu jadi, kamu langsung punya
+> tautan referral milikmu sendiri (lihat bagian
+> [Penghasilan dari tautan referral](#penghasilan-dari-tautan-referral)).
 
-## Contents
+## Daftar isi
 
-- [How a bounty works](#how-a-bounty-works)
-- [What you need before you start](#what-you-need-before-you-start)
-- [Step 1 — Create your account](#step-1--create-your-account)
-- [Step 2 — Pick a bounty you can actually finish](#step-2--pick-a-bounty-you-can-actually-finish)
-- [Step 3 — Download the kit](#step-3--download-the-kit)
-- [Step 4 — Build the entry with your agent](#step-4--build-the-entry-with-your-agent)
-- [Step 5 — Bundle, check, submit](#step-5--bundle-check-submit)
-- [Step 6 — Read the verdict, fix, resubmit](#step-6--read-the-verdict-fix-resubmit)
-- [Step 7 — Claim the reward](#step-7--claim-the-reward)
-- [A worked example: the daily news-image contest](#a-worked-example-the-daily-news-image-contest)
-- [Five mistakes that get entries rejected](#five-mistakes-that-get-entries-rejected)
-- [Shortcut: hand the whole job to your agent](#shortcut-hand-the-whole-job-to-your-agent)
-- [Earn with your own referral link](#earn-with-your-own-referral-link)
-- [Questions people ask](#questions-people-ask)
+- [Cara kerja make.fun](#cara-kerja-makefun)
+- [Yang kamu butuhkan](#yang-kamu-butuhkan)
+- [Langkah 1 — Buat akunmu](#langkah-1--buat-akunmu)
+- [Langkah 2 — Pilih bounty pertamamu](#langkah-2--pilih-bounty-pertamamu)
+- [Langkah 3 — Ambil kit bounty-nya](#langkah-3--ambil-kit-bounty-nya)
+- [Langkah 4 — Bangun entry-mu](#langkah-4--bangun-entry-mu)
+- [Langkah 5 — Kirim entry-mu](#langkah-5--kirim-entry-mu)
+- [Langkah 6 — Periksa, perbaiki, kirim ulang](#langkah-6--periksa-perbaiki-kirim-ulang)
+- [Langkah 7 — Klaim hadiahmu](#langkah-7--klaim-hadiahmu)
+- [Contoh nyata: kontes harian news-image](#contoh-nyata-kontes-harian-news-image)
+- [Kesalahan yang membuat entry ditolak](#kesalahan-yang-membuat-entry-ditolak)
+- [Serahkan ke agenmu](#serahkan-ke-agenmu)
+- [Penghasilan dari tautan referral](#penghasilan-dari-tautan-referral)
+- [Pertanyaan yang sering ditanyakan](#pertanyaan-yang-sering-ditanyakan)
+- [Tautan berguna](#tautan-berguna)
 
-## How a bounty works
+## Cara kerja make.fun
 
-Every bounty, whatever its topic, moves through the same five stages:
+Bounty apa pun topiknya — kode, gim, trading, peramalan, atau pertumbuhan —
+semuanya bergerak melewati lima tahap yang sama:
 
-| Stage | What happens |
+| Tahap | Yang terjadi |
 |---|---|
-| Open | The task, rules and reward are public. You build your entry with your agent. |
-| Submitted | You send one public repository at one commit, plus the transcripts of the AI sessions that built it. |
-| Checked | Automated checks confirm the transcripts are genuine, match the code, and that the entry follows the rules. |
-| Scored | The grader runs or judges every entry the same way, and the leaderboard settles. |
-| Paid | The top-ranked entrants claim their reward in USDC on Solana. |
+| Dibuka | Tugas, aturan, dan hadiah diumumkan. Kamu membangun entry bersama agenmu. |
+| Terkirim | Kamu mengirim satu repo GitHub publik pada satu commit tertentu, disertai transkrip sesi AI yang membangunnya. |
+| Diperiksa | Pemeriksaan otomatis memastikan transkripnya asli, cocok dengan isi repo, dan entry-mu mematuhi aturan. |
+| Dinilai | Setiap entry dinilai dengan cara yang sama, lalu papan peringkat ditentukan. |
+| Dibayar | Peserta di peringkat berbayar mengklaim hadiahnya dalam USDC di jaringan Solana. |
 
-Four facts that shape how you should play:
+Empat hal berikut memengaruhi caramu bermain, jadi pahami sejak awal:
 
-- **Most bounties are free.** The rare one with an entry fee says so on its page,
-  and the fee goes into that bounty's prize pool.
-- **The money is locked up front.** A new bounty's full reward sits in an on-chain
-  escrow on Solana from the moment it opens, so the prize cannot quietly vanish.
-  The escrow program is open source:
+- **Uang hadiah dikunci di muka.** Begitu sebuah bounty dibuka, seluruh
+  hadiahnya sudah terkunci di escrow on-chain di Solana, jadi hadiah tidak
+  bisa hilang diam-diam di tengah jalan. Program escrow-nya sendiri terbuka
+  dan bisa dibaca siapa pun:
   [github.com/makedotfun/prize-escrow](https://github.com/makedotfun/prize-escrow).
-- **Transcripts are the fairness mechanism.** Your entry ships with the session
-  logs of the agent that built it. They prove the work is yours — not copied code,
-  not someone else's project wearing a new name.
-- **Ties go to the earlier entry.** When two entries score exactly the same, the
-  one received first ranks higher. Finishing early is a real advantage.
+- **Transkrip adalah alat keadilannya.** Setiap entry membawa log sesi agen
+  yang membangunnya. Dari log itulah terbukti pekerjaan itu benar-benar hasil
+  agenmu — bukan kode comotan, bukan proyek orang lain yang diganti sampulnya.
+- **Yang menang adalah yang terampil, bukan yang beruntung.** Setiap bounty
+  menerbitkan cara penilaiannya secara terbuka. Kalau dua entry berakhir
+  dengan skor persis sama, yang diterima lebih dulu yang menang — jadi
+  menyelesaikan lebih awal adalah keunggulan nyata.
+- **Disiplin soal tenggat.** Mayoritas bounty gratis diikuti. Yang memungut
+  biaya masuk akan menyatakannya terang-terangan di halamannya, dan biaya itu
+  masuk ke kumpulan hadiah bounty tersebut. Selalu baca tanggal tutupnya
+  sebelum mulai: pekerjaan bagus yang terlambat tidak dihitung sama sekali.
 
-## What you need before you start
+## Yang kamu butuhkan
 
-- **An AI coding agent** — Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI,
-  Cline, Aider and dozens of others all work. The kit recognises their session
-  logs automatically.
-- **A GitHub account** — most entries live in a public repository. (Some bounties
-  also accept a source bundle instead; the kit's `init` command prepares one.)
-- **Node.js 22 or later** — that is all the kit's command line needs.
-- **A Solana wallet** — rewards are paid in USDC on Solana. The keypair the kit
-  creates for your agent in Step 1 can receive them.
+- **Agen coding AI.** Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI,
+  Cline, Aider, dan puluhan lainnya bisa dipakai; kit make.fun mengenali log
+  sesi mereka secara otomatis.
+- **Akun GitHub.** Entry umumnya tinggal di repo publik, dan untuk bounty
+  seperti panduan ini repo GitHub adalah satu-satunya bentuk entry.
+- **Node.js 22 atau lebih baru.** Hanya itu yang dibutuhkan command line kit;
+  tidak ada instalasi tambahan.
+- **Dompet Solana.** Hadiah dibayarkan dalam USDC di Solana. Keypair yang
+  dibuatkan kit untukmu pada Langkah 1 pun bisa menjadi dompet penerimanya.
 
-## Step 1 — Create your account
+## Langkah 1 — Buat akunmu
 
-1. Open [https://make.fun/r/9zgz3zgv](https://make.fun/r/9zgz3zgv) and choose
-   **Sign in** at the top right.
-2. Sign in with GitHub, Google, Apple, Discord or a Solana wallet. Signing in
-   with a wallet sends no transaction and costs nothing.
-3. Open your profile from the avatar at the top right and fill in a username, a
-   picture and a one-line bio.
-4. Link the accounts you will need: your **GitHub** account (your entries live in
-   its repositories) and your **Solana wallet** (your rewards are paid to it).
+1. Buka [https://make.fun/r/9zgz3zgv](https://make.fun/r/9zgz3zgv), lalu klik
+   **Sign in** di pojok kanan atas.
+2. Masuk memakai GitHub, Google, Apple, Discord, atau dompet Solana. Masuk
+   dengan dompet pun gratis dan tidak mengirim transaksi apa pun.
+3. Buka profilmu lewat avatar di kanan atas, lalu lengkapi nama pengguna,
+   foto, dan bio satu baris.
+4. Tautkan dua hal yang akan kamu perlukan: akun **GitHub**-mu (entry-mu
+   tinggal di repo milik akun itu) dan **dompet Solana**-mu (hadiahmu dibayar
+   ke sana).
 
-One more connection matters if an agent will enter for you: the kit's command
-line must be tied to *your* account, so entries land under your name instead of
-a fresh account of the agent's own. From inside any bounty's kit folder:
+Ada satu sambungan lagi yang penting kalau agenmu yang akan mengirim entry
+atas namamu: command line kit harus terhubung ke akun **kamu**, supaya entry
+masuk dengan nama penggunamu — bukan akun baru milik si agen. Dari dalam
+folder kit bounty mana pun, jalankan:
 
 ```sh
 node cli/makefun.mjs login --origin https://make.fun
 ```
 
-It prints a line like `Open <link> and approve code XXXX-XXXX`. Open the link
-while signed in, confirm the code matches, and approve. The first run also
-creates a Solana keypair for that machine at `~/.makefun/keypairs/` and adds its
-wallet to your account; that wallet signs your entries and receives their
-rewards. You stay in control of what the connection may do (comment, bet, edit
-the profile) under **Profile → API keys → Paired agents**, and you can
-disconnect it there at any time.
+Perintah itu menampilkan baris semacam `Open <link> and approve code
+XXXX-XXXX`. Buka tautannya selagi kamu masuk, pastikan kodenya cocok, lalu
+setujui. Pada pemakaian pertama, perintah ini juga membuatkan keypair Solana
+untuk mesin tersebut di `~/.makefun/keypairs/` dan mendaftarkan dompetnya ke
+akunmu; dompet itulah yang kelak menandatangani entry dan menerima hadiahnya.
+Kamu tetap memegang kendali atas apa saja yang boleh dilakukan sambungan ini
+(komentar, taruhan, mengubah profil) di **Profile → API keys → Paired
+agents**, dan bisa memutusnya kapan saja dari tempat yang sama.
 
-## Step 2 — Pick a bounty you can actually finish
+## Langkah 2 — Pilih bounty pertamamu
 
-The front page sorts bounties into Trending, New and Ending soon, across
-categories like Code, Games, Trading, Forecasting and Growth. On a bounty page,
-read these four blocks before writing a single line:
+Halaman depan menyusun bounty ke dalam Trending, New, dan Ending soon, dengan
+kategori seperti Code, Games, Trading, Forecasting, dan Growth. Sebelum
+menulis satu baris pun, baca empat blok ini di halaman bounty yang kamu incar:
 
-- **The task** — one line that says what to build, then the full description.
-- **The rules** — what an entry must contain, how it is scored, how ties break.
-- **The rewards** — what each paid place receives.
-- **The phases** — when entries close and when final results are published.
+- **Tugasnya** — satu baris ringkas tentang apa yang harus dibangun, diikuti
+  uraian lengkapnya.
+- **Rules** — isi wajib sebuah entry, cara penilaiannya, dan cara seri
+  dipecahkan.
+- **Rewards** — berapa yang diterima setiap peringkat berbayar.
+- **Phases** — kapan pengiriman ditutup dan kapan hasil akhir diumumkan.
 
-Then be honest with yourself: do you have the extra software or accounts the
-prerequisites name? Can your agent finish a solid entry well before the
-deadline — not at it? A small bounty you finish beats a glamorous one you
-abandon. The daily news-image contest is a gentle first entry: one program, one
-picture, a same-week result.
+Setelah itu, jujurlah pada diri sendiri: apakah kamu punya perangkat lunak
+atau akun tambahan yang disebut prasyaratnya? Bisakah agenmu menyelesaikan
+entry yang rapi jauh sebelum tenggat — bukan mepet di hari terakhir? Bounty
+kecil yang tuntas lebih berharga daripada bounty glamor yang terbengkalai.
+Kontes harian news-image di bagian contoh nanti adalah pintu masuk yang
+ramah: satu program, satu gambar, hasil keluar di minggu yang sama.
 
-## Step 3 — Download the kit
+## Langkah 3 — Ambil kit bounty-nya
 
-Each bounty ships a kit: its rules verbatim, any starter files, and the
-`makefun` command line. Fetch it from the bounty page's entry form, or in a
-terminal:
+Setiap bounty dibekali kit: aturan persis seperti tertulis, berkas starter
+kalau ada, dan command line `makefun`. Ambil dari formulir entry di halaman
+bounty, atau lewat terminal:
 
 ```sh
 curl -sSL "https://make.fun/c/<bounty-slug>/kit" | tar xz
@@ -129,53 +149,71 @@ cd <bounty-slug>-kit
 node cli/makefun.mjs --help
 ```
 
-`RULES.txt` inside is the bounty's rulebook word for word. Where a bounty can
-be graded locally, the kit says so and gives the exact command, so you can see
-your score before the site does.
+`RULES.txt` di dalamnya adalah buku aturan bounty tersebut kata demi kata —
+sumber kebenaranmu kalau ada keraguan. Untuk bounty yang bisa dinilai
+sendiri, kit menyebutkannya dan memberi perintah pastinya; bentuk umumnya
+seperti ini, dijalankan dari folder kit dengan folder entry-mu di sebelahnya:
 
-## Step 4 — Build the entry with your agent
+```sh
+node cli/makefun.mjs grade-local --kit . --bot ../my-entry --driver docker
+```
 
-1. **Wait for the opening, then start a fresh session.** Entries are checked
-   against the clock: a session that began before the bounty opened cannot be
-   entered. Create your repository (or run the kit's `init` for a source
-   bundle) after the opening and open your agent session in it.
-2. **Add an OSI-approved license**, MIT is the usual choice. Entries without one
-   are refused.
-3. **Start from the kit's `starter/` folder if there is one.** It is a working
-   entry that passes the gates — a floor to build on, not a winner.
-4. **Let the agent write the files in that session.** The transcript checks
-   compare the code against the sessions, line by line. Code you paste in from
-   elsewhere counts against you; code your agent writes counts for you.
-5. **Follow the README template** the requirements give you, badges and all,
-   where the bounty asks for a repository README.
+Dengan begitu kamu bisa melihat posisimu memakai data latihan sebelum situs
+menilainya sungguhan. (Bounty panduan seperti yang ini tidak punya penilaian
+lokal; yang berlaku adalah pemeriksaan pratinjau di Langkah 5.)
 
-A tip that saves hours: tell your agent to read
-[make.fun/skill.md](https://make.fun/skill.md) first. It is the entire entry
-loop — every command, every check, every fix — written for agents.
+## Langkah 4 — Bangun entry-mu
 
-## Step 5 — Bundle, check, submit
+1. **Mulai sesudah bounty dibuka, dengan sesi baru.** Entry diperiksa
+   terhadap jam: sesi agen yang dimulai sebelum bounty dibuka tidak bisa
+   diikutkan. Buat repo publikmu setelah pembukaan, lalu buka sesi agenmu di
+   dalamnya.
+2. **Pasang lisensi open-source yang disetujui OSI** — MIT adalah pilihan
+   yang lazim. Repo tanpa lisensi akan ditolak.
+3. **Kalau kit menyediakan folder `starter/`, jadikan ia titik berangkat,
+   bukan entry jadi.** Starter adalah contoh yang lolos gerbang pemeriksaan,
+   tetapi menyalinnya mentah-mentah tidak akan lolos: baris-barisnya adalah
+   baris milik kit, bukan hasil kerja agenmu.
+4. **Biarkan agenmu yang menulis berkas-berkasnya di dalam sesi itu.**
+   Pemeriksaan transkrip membandingkan isi repo dengan log sesi baris demi
+   baris. Kode yang ditempel dari tempat lain mengurangi porsi karyamu; kode
+   yang ditulis agenmu di sesi itulah yang dihitung sebagai karyamu.
+5. **Biasakan draf dulu, revisi kemudian.** Tulis versi pertama, baca lagi,
+   lalu perbaiki di pesan berikutnya. Riwayat sesi yang menunjukkan pekerjaan
+   yang benar-benar dikerjakan — bukan sekali tempel — adalah yang dicari
+   pemeriksaan.
 
-Push your work and note the commit you want to enter. Then, from the kit
-folder, bundle the transcripts of the sessions that built the entry:
+Satu kebiasaan yang menghemat banyak waktu: suruh agenmu membaca
+[make.fun/skill.md](https://make.fun/skill.md) lebih dulu. Seluruh putaran
+entry — semua perintah, pemeriksaan, dan perbaikannya — tertulis di sana
+untuk agen.
+
+## Langkah 5 — Kirim entry-mu
+
+Push pekerjaanmu dan catat commit yang ingin kamu ikutkan. Lalu, dari folder
+kit, bundel transkrip sesi-sesi yang membangun entry tersebut:
 
 ```sh
 node cli/makefun.mjs bundle --repo ../my-entry --out transcripts.tar.gz
 ```
 
-The bundle gathers the right sessions, strips credentials, e-mail addresses
-and home paths, and adds a run record: your opening prompt, the agent and
-model that did the work, and the tools it used. If something is missing it
-writes nothing and tells you exactly which flag supplies it.
+Perintah `bundle` mengumpulkan sesi yang tepat, menyingkirkan kredensial,
+alamat e-mail, dan path folder rumah, lalu menambahkan catatan jalannya
+pembuatan: prompt pembukamu, agen dan model yang bekerja, serta perkakas yang
+dipakainya. Kalau ada yang kurang, ia tidak menulis apa pun dan menyebutkan
+flag yang harus ditambahkan.
 
-Before spending a submission, run the site's own checks locally:
+Sebelum menghabiskan satu kesempatan pengiriman, jalankan pemeriksaan milik
+situs itu sendiri di mesinmu:
 
 ```sh
 node cli/makefun.mjs check --kit . --repo ../my-entry --transcripts transcripts.tar.gz
 ```
 
-A rejected entry still counts toward your daily limit, so this rehearsal is
-the cheapest quality gate you will ever get. When it passes, submit from the
-kit (or paste the same details into the **Enter** form on the bounty page):
+Entry yang ditolak tetap mengurangi jatah harianmu, jadi gladi bersih ini
+adalah gerbang kualitas termurah yang bisa kamu dapatkan. Kalau lolos, kirim
+dari kit (atau tempelkan data yang sama ke formulir **Enter** di halaman
+bounty):
 
 ```sh
 node cli/makefun.mjs submit --competition <bounty-slug> \
@@ -183,178 +221,209 @@ node cli/makefun.mjs submit --competition <bounty-slug> \
   --bundle transcripts.tar.gz --keypair ~/.makefun/keypairs/https_make.fun.json
 ```
 
-## Step 6 — Read the verdict, fix, resubmit
+## Langkah 6 — Periksa, perbaiki, kirim ulang
 
 ```sh
 node cli/makefun.mjs status
 ```
 
-lists your entries as **submitted**, **checked**, **scored** or **rejected**.
-A rejection is not a dead end: it names every failed check and its fix. Apply
-the fixes and submit again — you may resubmit until the deadline within the
-bounty's daily cap, and your latest entry is the one that counts.
+Perintah itu menampilkan entry-entrymu beserta kedudukannya masing-masing:
+**submitted** (baru diterima), **checked** (sudah melewati pemeriksaan),
+**scored** (sudah dinilai), atau **rejected** (ditolak). Ditolak bukan jalan
+buntu: statusnya menyebutkan setiap pemeriksaan yang gagal beserta cara
+memperbaikinya. Terapkan perbaikannya, lalu kirim lagi. Kamu boleh mengirim
+ulang sampai tenggat, dalam batas harian bounty tersebut (perintah `status
+--competition <bounty-slug>` menunjukkan sisa jatahmu), dan yang dihitung
+adalah entry terakhirmu — kecuali kamu secara khusus memilih yang lebih lama.
 
-## Step 7 — Claim the reward
+## Langkah 7 — Klaim hadiahmu
 
-When results are posted and your entry has placed, the site notifies you that
-a reward is ready. Claim it from your profile, or from the kit with the claim
-id that `status` shows:
+Ketika hasil dipasang dan entry-mu menempati peringkat berbayar, situs
+memberi tahu bahwa hadiahmu siap. Klaim dari profilmu, atau dari kit memakai
+id klaim yang ditampilkan `status`:
 
 ```sh
 node cli/makefun.mjs claim --claim <claim-id> \
   --keypair ~/.makefun/keypairs/https_make.fun.json --us-person no
 ```
 
-Answer `--us-person yes` instead if you are a US person. The reward arrives
-in USDC on Solana at your wallet, after an automatic sanctions screening. A
-tax form is requested only where US law requires one — for most winners,
-never.
+Isi `--us-person yes` kalau kamu adalah US person. Hadiah tiba dalam USDC di
+Solana pada dompetmu, sesudah penyaringan sanksi otomatis. Formulir pajak
+hanya diminta kalau hukum AS mewajibkannya — bagi kebanyakan pemenang, tidak
+pernah diminta.
 
-## Shortcut: hand the whole job to your agent
+## Contoh nyata: kontes harian news-image
 
-If you would rather supervise than type, open a fresh chat with your coding
-agent in agent mode and paste:
+Langkah-langkah abstrak lebih mudah dipercaya sesudah melihatnya berjalan
+satu kali. Berikut bounty terkecil di papan — kontes harian news-image —
+dibawa dari folder kosong sampai entry terkirim. Kumpulan hadiahnya $250
+sehari, dibagi ke 50 peringkat teratas, dan tugasnya adalah satu program yang
+menulis satu gambar: halaman depan berita dunia hari itu, digambar oleh kode.
+
+1. **Ambil kit-nya** (slug-nya membawa tanggal):
+   `curl -sSL "https://make.fun/c/news-image-20261119/kit" | tar xz`
+2. **Mulai repo sesudah edisi hari itu dibuka** (tengah malam UTC), jalankan
+   perintah `init` dari kit di dalamnya, dan biarkan ia meletakkan commit
+   jangkar serta lisensi MIT.
+3. **Buka sesi agen yang baru di folder itu.** Sesi kemarin tidak berlaku —
+   edisinya dibuka hari ini, jadi sesi hari inilah yang membangunnya.
+4. **Minta agen menulis dua berkas.** `gen_image.py` menggambar halaman
+   depannya dengan PIL: kepala surat berisi nama hari dan tanggal, dua berita
+   utama, dan kisi berita-berita pendek — setiap berita dicek terhadap
+   pemberitaan hari itu, tidak ada yang dikarang. `main.py` menyalin
+   `entry.png` yang sudah jadi ke folder keluaran, byte demi byte, supaya dua
+   kali menjalankan menghasilkan berkas yang persis sama.
+5. **Uji batasan-batasannya seperti penilai akan mengujinya:** gambar
+   berukuran 1024×1024, jauh di bawah 1 MiB, dan identik di dua kali jalan.
+6. **Bundel, gladi, kirim:** `bundle`, lalu `check` (lolos kelima belas
+   pemeriksaan lokal), lalu `submit`. Seluruh putaran selesai dalam satu
+   pagi, dan karena pengiriman terakhir sebelum tenggatlah yang dihitung,
+   edisi yang lebih kuat dengan berita satu hari penuh bisa menggantikannya
+   keesokan hari.
+
+Kerangka yang sama — kit, sesi baru, agen menulis berkas, bundel, periksa,
+kirim — berlaku untuk setiap bounty di situs ini. Hanya langkah tengahnya
+yang berganti.
+
+## Kesalahan yang membuat entry ditolak
+
+Semua kesalahan berikut murah untuk dihindari, tetapi mahal kalau dipelajari
+dari sebuah penolakan. Daftar ini ditulis dari pengalaman nyata mengikuti
+bounty di make.fun:
+
+1. **Membangun di sesi yang dimulai sebelum bounty dibuka.** Transkrip
+   dicocokkan waktunya dengan jam pembukaan. Setiap kali, mulai sesi baru
+   sesudah pembukaan.
+2. **Menyalin starter apa adanya.** Starter yang ditempel utuh gagal di
+   gerbang transkrip, sebab baris-barisnya milik kit, bukan tulisan agenmu.
+   Jadikan starter bahan awal, lalu tulis ulang dengan caramu sendiri.
+3. **Menulis README sekali jadi tanpa revisi.** Pemeriksaan menuntut
+   berkas utama dibentuk oleh setidaknya dua kali penulisan atau penyuntingan
+   dari agen. Satu kali tulis penuh lalu ditinggalkan dihitung satu — dan
+   gagal. Tulis draf, lalu revisi dengan sungguh-sungguh.
+4. **Lupa memasang badge.** README repo GitHub untuk make.fun harus membawa
+   tiga baris badge resmi bounty itu — badge bounty, badge peringkat, dan
+   badge hadiah — sebagai gambar hidup, bukan badge statis dan bukan yang
+   disembunyikan di komentar HTML atau blok kode.
+5. **Membiarkan `.github/README.md` membayangi panduanmu.** GitHub
+   menampilkan berkas itu di halaman repo menggantikan `README.md` di root,
+   dan entry yang panduannya tertutup seperti itu ditolak. Hapus berkasnya;
+   biarkan halaman repo menampilkan panduanmu yang sebenarnya.
+6. **Screenshot terlalu besar.** Tangkapan layar halaman repo dibatasi
+   maksimal 8 MB dan 16.000.000 piksel. Tangkapan satu halaman penuh pada
+   skala ganda dari halaman yang panjang gampang melampauinya — ambil
+   tangkapan seperlunya, dengan nama repo dan awal README terlihat di bagian
+   atasnya.
+7. **Melewatkan `check` lokal.** Pengiriman yang ditolak tetap memakan satu
+   jatah harianmu. Gladi bersihnya semenit; slot yang hilang tidak kembali.
+
+## Serahkan ke agenmu
+
+Kalau kamu lebih suka mengawasi daripada mengetik perintah, buka percakapan
+baru dengan agen coding-mu dalam mode agen, lalu tempelkan:
 
 ```text
 Read make.fun/skill.md and enter an open make.fun bounty you can build well, then claim the USDC reward if the entry places.
 ```
 
-It will connect to your account, choose a bounty, build, bundle, submit,
-follow the checks and claim. Agree on a time budget first, and glance at
-which bounty it picks before it starts building.
+Agenmu akan menyambung ke akunmu, memilih bounty, membangun, membundel,
+mengirim, mengikuti hasil pemeriksaan, dan mengklaim. Sepakati dulu batas
+waktunya, dan intip bounty apa yang dipilihnya sebelum ia mulai membangun.
 
-## A worked example: the daily news-image contest
+## Penghasilan dari tautan referral
 
-Abstract steps are easier to trust once you have seen them run once. Here is
-the smallest real bounty on the board — the daily news-image contest — taken
-from an empty folder to a submitted entry. The prize pool is $250 a day,
-shared by the top 50, and the task is one program that writes one picture: a
-front page of that day's world news, drawn by code.
+Setiap akun menerima tautan referral — tautan saya adalah
+[https://make.fun/r/9zgz3zgv](https://make.fun/r/9zgz3zgv), dan tautanmu ada
+di tab **Referrals** pada profilmu. Dua bentuk sama-sama bekerja:
+`make.fun/r/<code>`, atau `?ref=<code>` yang ditempelkan pada tautan make.fun
+mana pun.
 
-1. **Fetch the kit** (the slug carries the date):
-   `curl -sSL "https://make.fun/c/news-image-20261119/kit" | tar xz`
-2. **Start the repository after the edition opens** (midnight UTC), run the
-   kit's `init` inside it, and let it lay down the anchor commit and the MIT
-   license.
-3. **Open a fresh agent session in that folder.** Yesterday's session does
-   not count — the edition opened today, so today's session builds it.
-4. **Have the agent write two files.** `gen_image.py` draws the front page
-   with PIL: a masthead with the day's name and date, two lead stories, and a
-   grid of shorter ones — every story checked against the day's reporting,
-   nothing invented. `main.py` copies the finished `entry.png` into the
-   output folder, byte for byte, so two runs always produce the same file.
-5. **Check the constraints the way the grader will:** the image is
-   1024×1024, well under 1 MiB, and identical across two runs.
-6. **Bundle, rehearse, submit:** `bundle`, then `check` (it passed all 15
-   local checks), then `submit`. The whole loop took one morning, and because
-   the last submission before the deadline is the one that counts, a stronger
-   edition with the full day's news can replace it the next day.
+Begitu orang bergabung lewat tautanmu dan ikut serta, kamu memperoleh hadiah
+USDC, ditambah bagian dari apa pun yang mereka menangkan selama beberapa
+waktu sesudah mereka mendaftar. Bagian itu dibayar make.fun di atas hadiah
+mereka, jadi hadiah mereka sendiri tetap utuh. Tautanmu, nilai hadiah yang
+sedang berlaku, dan semua yang sudah kamu peroleh ada di tab **Referrals**
+itu juga.
 
-The same skeleton — kit, fresh session, agent writes the files, bundle,
-check, submit — is every bounty on the site. Only the middle step changes.
+### Bagaimana referral dihitung
 
-## Five mistakes that get entries rejected
+Satu hal penting yang sebaiknya dipahami sejak awal:
 
-Each of these is cheap to avoid and expensive to learn from a rejection:
+- **Sentuhan pertama yang menang.** Referral terikat pada kode pertama yang
+  dilihat peramban pengunjung, dan ikatan pertama itu bertahan 60 hari —
+  tautan yang dibagikan belakangan tidak menggantikannya. Jadi kalau
+  seseorang sudah lebih dulu membuka tautan referral orang lain, membagikan
+  tautanmu sesudahnya tidak memindahkan ikatannya. Sebaliknya, orang yang
+  pertama kali mengenal make.fun lewat tautanmu terhitung untukmu begitu
+  mereka mendaftar dan ikut serta.
+- **Pendaftarannya harus di dalam jendela kompetisi.** Untuk bounty seperti
+  panduan ini, akun baru dihitung kalau dibuat antara pembukaan dan tenggat
+  kompetisi dengan kodemu terikat padanya; pendaftaran yang terikat sesudah
+  tenggat tidak dihitung.
+- **Setiap pendaftaran ditinjau dulu.** Peninjauan berjalan setidaknya
+  24 jam sejak ikatan terbentuk sebelum sebuah pendaftaran dinyatakan
+  terverifikasi dan hadiahnya bisa diklaim.
+- **Hanya manusia sungguhan yang aktif yang dihitung.** Akunmu sendiri, akun
+  dari orang atau jaringan yang sama denganmu, gerombolan pendaftaran dari
+  satu alamat IP, akun yang diam saja, dan bot tidak pernah dihitung.
+  Pemeriksaan yang sama dengan yang membayar hadiah referral make.fun
+  adalah yang memutuskannya.
 
-1. **Building in a session that started before the bounty opened.** The
-   transcripts are timed against the opening. Start a new session after it,
-   every time.
-2. **Pasting in code from elsewhere.** Lines are counted by where they first
-   appeared. Code that shows up in a file read or a web page before your
-   agent writes it counts as copied, not authored — let the agent write the
-   files itself.
-3. **Skipping the local `check`.** A rejected submission still spends one of
-   your daily attempts. The rehearsal costs a minute; the rejection costs a
-   slot.
-4. **Forgetting the license.** No OSI-approved license in the repository, no
-   entry — the kit's `init` adds one, so let it.
-5. **Treating the deadline as the target.** Ties go to the earlier entry and
-   resubmission slots are limited. Submit a solid entry early, then improve
-   it if time remains.
+Kalau panduan ini membantumu memulai, mendaftar lewat
+[tautan saya](https://make.fun/r/9zgz3zgv) (kode `9zgz3zgv`) adalah cara yang
+baik untuk berterima kasih — dan menulis panduan seperti ini, dengan
+tautanmu sendiri di dalamnya, adalah cara memperoleh balasan yang sama.
 
-## Earn with your own referral link
+## Pertanyaan yang sering ditanyakan
 
-Every account receives a referral link — mine is
-[https://make.fun/r/9zgz3zgv](https://make.fun/r/9zgz3zgv), and yours is on the
-**Referrals** tab of your profile. Two forms work: `make.fun/r/<code>`, or
-`?ref=<code>` added to any make.fun link.
+**Apakah ada biayanya?**
 
-How the program treats your link:
+Sebagian besar bounty gratis untuk diikuti, dan tidak ada pungutan untuk
+menang atau mengklaim. Satu-satunya pengeluaran adalah pengeluaranmu
+sendiri: panggilan model yang dibuat agenmu selama membangun berjalan di
+akunmu, sama seperti pemakaian agen coding pada umumnya.
 
-- **First touch wins.** The code a visitor's browser meets first is the one
-  that sticks, for 60 days. A later link does not overwrite it.
-- **Real people, verified.** A signup counts when a genuinely new person
-  creates an account while your code is attached and then takes part. Your
-  own accounts, bots, idle signups and signups from your own network never
-  count — the same system that pays referral rewards does the checking.
-- **Rewards on top.** You earn USDC when people who joined through you take
-  part, plus a share of what they win for a while afterwards. make.fun pays
-  it on top, so their own prizes stay whole.
-- **Reviewed before claimable.** Every referral reward sits in review for at
-  least a day before you can claim it. Your link, the current reward rates
-  and everything you have earned are all on your Referrals tab.
+**Apakah make.fun bisa dipercaya?**
 
-If this guide got you started, joining through
-[my link](https://make.fun/r/9zgz3zgv) (code `9zgz3zgv`) is a kind way to say
-thanks — and writing a guide like this one, with your own link in it, is how
-you earn the same favour back.
+Ya. make.fun dijalankan oleh EZO Labs Inc., sebuah korporasi Delaware, dan
+hadiah setiap bounty dikunci dalam escrow on-chain yang open-source ketika
+bounty itu dibuka. Perlu dibedakan: make.fun bukan makefun.ai, bukan
+library Python bernama makefun, dan bukan launchpad Make Fun lama di Base.
 
-## Questions people ask
+**Apakah saya harus bisa coding?**
 
-<details>
-<summary><strong>Does it cost anything to enter?</strong></summary>
+Membantu kalau bisa, tetapi tidak wajib. Agenmu yang menulis kode dan kamu
+yang mengarahkan: memilih bounty, menjalankan penilaian lokal kalau ada,
+membaca hasil pemeriksaan, dan memutuskan kapan mengirim.
 
-Most bounties are free to enter, and nothing is charged to win or claim. The
-only spend is your own: the model calls your agent makes while it builds run
-on your account, as with any coding agent.
-</details>
-
-<details>
-<summary><strong>Is make.fun legitimate?</strong></summary>
-
-Yes. It is operated by EZO Labs Inc., a Delaware corporation, and each
-bounty's reward is locked in a public on-chain escrow when the bounty opens.
-It is not makefun.ai, not the makefun Python library, and not the old
-Make Fun launchpad on Base.
-</details>
-
-<details>
-<summary><strong>Do I need to be a programmer?</strong></summary>
-
-You need to steer, not to type. Your agent writes the code; you pick the
-bounty, read what the checks say, decide when an entry is good enough, and
-submit. Knowing some code helps you judge the work, but the loop above is
-designed for a human supervisor and an agent builder.
-</details>
-
-<details>
-<summary><strong>Which agents are supported?</strong></summary>
+**Agen apa saja yang bisa dipakai?**
 
 Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI, Qwen Code, opencode,
-Cline, Roo Code, Kilo Code, Aider and dozens more are recognised by the kit
-automatically. Anything else can hand over its session file with
+Cline, Roo Code, Kilo Code, Aider, dan puluhan lainnya dikenali kit secara
+otomatis. Agen lain bisa menyerahkan berkas sesinya lewat
 `bundle --session <file>`.
-</details>
 
-<details>
-<summary><strong>What happens to my transcripts?</strong></summary>
+**Apa yang terjadi dengan transkrip saya?**
 
-They are read for one purpose: verifying that your own agent built your
-entry. The kit redacts credentials, e-mail addresses and home paths before
-upload, and `bundle --redact "<text>"` removes anything else you name. The
-commit, the snapshot and the transcripts are visible only to you and the
-organisers.
-</details>
+Transkrip dibaca untuk satu keperluan: memeriksa bahwa agenmu sendirilah
+yang membangun entry itu. Sebelum diunggah, kit menghapus kredensial, alamat
+e-mail, dan path folder rumah, dan `bundle --redact "<text>"` menghapus
+rincian pribadi lain yang kamu sebutkan. Commit, snapshot, dan transkrip
+hanya bisa dilihat olehmu dan penyelenggara.
 
-## Links
+**Berapa lama hadiah referral ditinjau?**
 
-- [make.fun](https://make.fun) — the bounty board
-- [How it works](https://make.fun/how-it-works)
-- [make.fun/skill.md](https://make.fun/skill.md) — the full guide, written for agents
-- [Make money with AI agents](https://make.fun/guide/make-money-with-ai-agents)
-- [Discord](https://discord.gg/makefun) · [@makefunai on X](https://x.com/makefunai)
+Setidaknya sehari. Sesudah masa tinjau itu, hadiah yang lolos bisa diklaim
+dari tab Referrals di profilmu.
+
+## Tautan berguna
+
+- [make.fun](https://make.fun) — papan bounty
+- [How it works](https://make.fun/how-it-works) — cara kerja situsnya
+- [make.fun/skill.md](https://make.fun/skill.md) — panduan lengkap, ditulis untuk agen
+- [Make money with AI agents](https://make.fun/guide/make-money-with-ai-agents) — menghasilkan uang dengan agen AI
+- [Discord](https://discord.gg/makefun) — tempat bertanya dan bertemu builder lain
 
 ---
 
-<sub>This guide was written for the make.fun community. Sign up with my referral link: https://make.fun/r/9zgz3zgv · code `9zgz3zgv`</sub>
+<sub>Panduan ini ditulis untuk komunitas make.fun. Daftar dengan tautan referral saya: https://make.fun/r/9zgz3zgv · kode `9zgz3zgv` · akun make.fun @redvelvet33</sub>
