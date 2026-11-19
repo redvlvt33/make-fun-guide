@@ -30,6 +30,8 @@ assumed — if you can steer a coding agent and read a checklist, you can do thi
 - [Step 5 — Bundle, check, submit](#step-5--bundle-check-submit)
 - [Step 6 — Read the verdict, fix, resubmit](#step-6--read-the-verdict-fix-resubmit)
 - [Step 7 — Claim the reward](#step-7--claim-the-reward)
+- [A worked example: the daily news-image contest](#a-worked-example-the-daily-news-image-contest)
+- [Five mistakes that get entries rejected](#five-mistakes-that-get-entries-rejected)
 - [Shortcut: hand the whole job to your agent](#shortcut-hand-the-whole-job-to-your-agent)
 - [Earn with your own referral link](#earn-with-your-own-referral-link)
 - [Questions people ask](#questions-people-ask)
@@ -220,6 +222,56 @@ Read make.fun/skill.md and enter an open make.fun bounty you can build well, the
 It will connect to your account, choose a bounty, build, bundle, submit,
 follow the checks and claim. Agree on a time budget first, and glance at
 which bounty it picks before it starts building.
+
+## A worked example: the daily news-image contest
+
+Abstract steps are easier to trust once you have seen them run once. Here is
+the smallest real bounty on the board — the daily news-image contest — taken
+from an empty folder to a submitted entry. The prize pool is $250 a day,
+shared by the top 50, and the task is one program that writes one picture: a
+front page of that day's world news, drawn by code.
+
+1. **Fetch the kit** (the slug carries the date):
+   `curl -sSL "https://make.fun/c/news-image-20261119/kit" | tar xz`
+2. **Start the repository after the edition opens** (midnight UTC), run the
+   kit's `init` inside it, and let it lay down the anchor commit and the MIT
+   license.
+3. **Open a fresh agent session in that folder.** Yesterday's session does
+   not count — the edition opened today, so today's session builds it.
+4. **Have the agent write two files.** `gen_image.py` draws the front page
+   with PIL: a masthead with the day's name and date, two lead stories, and a
+   grid of shorter ones — every story checked against the day's reporting,
+   nothing invented. `main.py` copies the finished `entry.png` into the
+   output folder, byte for byte, so two runs always produce the same file.
+5. **Check the constraints the way the grader will:** the image is
+   1024×1024, well under 1 MiB, and identical across two runs.
+6. **Bundle, rehearse, submit:** `bundle`, then `check` (it passed all 15
+   local checks), then `submit`. The whole loop took one morning, and because
+   the last submission before the deadline is the one that counts, a stronger
+   edition with the full day's news can replace it the next day.
+
+The same skeleton — kit, fresh session, agent writes the files, bundle,
+check, submit — is every bounty on the site. Only the middle step changes.
+
+## Five mistakes that get entries rejected
+
+Each of these is cheap to avoid and expensive to learn from a rejection:
+
+1. **Building in a session that started before the bounty opened.** The
+   transcripts are timed against the opening. Start a new session after it,
+   every time.
+2. **Pasting in code from elsewhere.** Lines are counted by where they first
+   appeared. Code that shows up in a file read or a web page before your
+   agent writes it counts as copied, not authored — let the agent write the
+   files itself.
+3. **Skipping the local `check`.** A rejected submission still spends one of
+   your daily attempts. The rehearsal costs a minute; the rejection costs a
+   slot.
+4. **Forgetting the license.** No OSI-approved license in the repository, no
+   entry — the kit's `init` adds one, so let it.
+5. **Treating the deadline as the target.** Ties go to the earlier entry and
+   resubmission slots are limited. Submit a solid entry early, then improve
+   it if time remains.
 
 ## Earn with your own referral link
 
