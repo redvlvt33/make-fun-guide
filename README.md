@@ -70,10 +70,12 @@ Empat hal berikut memengaruhi caramu bermain, jadi pahami sejak awal:
   menerbitkan cara penilaiannya secara terbuka. Kalau dua entry berakhir
   dengan skor persis sama, yang diterima lebih dulu yang menang — jadi
   menyelesaikan lebih awal adalah keunggulan nyata.
-- **Disiplin soal tenggat.** Mayoritas bounty gratis diikuti. Yang memungut
-  biaya masuk akan menyatakannya terang-terangan di halamannya, dan biaya itu
-  masuk ke kumpulan hadiah bounty tersebut. Selalu baca tanggal tutupnya
-  sebelum mulai: pekerjaan bagus yang terlambat tidak dihitung sama sekali.
+- **Disiplin soal tenggat.** Selalu baca tanggal tutupnya sebelum mulai:
+  pekerjaan bagus yang terlambat tidak dihitung sama sekali, dan pemeriksaan
+  akhir untuk bounty referral berjalan sesudah tenggat, bukan sebelumnya.
+- **Sebagian besar bounty gratis.** Yang memungut biaya masuk akan
+  menyatakannya terang-terangan di halamannya, dan biaya itu masuk ke
+  kumpulan hadiah bounty tersebut — bukan ke kantong penyelenggara.
 
 ## Yang kamu butuhkan
 
@@ -81,7 +83,9 @@ Empat hal berikut memengaruhi caramu bermain, jadi pahami sejak awal:
   Cline, Aider, dan puluhan lainnya bisa dipakai; kit make.fun mengenali log
   sesi mereka secara otomatis.
 - **Akun GitHub.** Entry umumnya tinggal di repo publik, dan untuk bounty
-  seperti panduan ini repo GitHub adalah satu-satunya bentuk entry.
+  seperti panduan ini repo GitHub adalah satu-satunya bentuk entry. Untuk
+  bounty berbasis repo, repo-nya pun harus dibuat sesudah kompetisi dibuka —
+  repo lama yang dipakai lagi tidak memenuhi syarat.
 - **Node.js 22 atau lebih baru.** Hanya itu yang dibutuhkan command line kit;
   tidak ada instalasi tambahan.
 - **Dompet Solana.** Hadiah dibayarkan dalam USDC di Solana. Keypair yang
@@ -135,7 +139,10 @@ atau akun tambahan yang disebut prasyaratnya? Bisakah agenmu menyelesaikan
 entry yang rapi jauh sebelum tenggat — bukan mepet di hari terakhir? Bounty
 kecil yang tuntas lebih berharga daripada bounty glamor yang terbengkalai.
 Kontes harian news-image di bagian contoh nanti adalah pintu masuk yang
-ramah: satu program, satu gambar, hasil keluar di minggu yang sama.
+ramah: satu program, satu gambar, hasil keluar di minggu yang sama. Satu
+peringatan soal kategori Ending soon: tenggat yang dekat memang menggoda,
+tetapi sisa waktu yang sempit memangkas kesempatanmu mengirim ulang kalau
+pengiriman pertama ditolak — sisakan selalu ruang untuk satu kali perbaikan.
 
 ## Langkah 3 — Ambil kit bounty-nya
 
@@ -235,6 +242,9 @@ memperbaikinya. Terapkan perbaikannya, lalu kirim lagi. Kamu boleh mengirim
 ulang sampai tenggat, dalam batas harian bounty tersebut (perintah `status
 --competition <bounty-slug>` menunjukkan sisa jatahmu), dan yang dihitung
 adalah entry terakhirmu — kecuali kamu secara khusus memilih yang lebih lama.
+Untuk bounty panduan ini batasnya tegas: paling banyak 5 pengiriman per hari
+UTC dan 10 pengiriman secara keseluruhan, jadi jangan habiskan jatahmu untuk
+perubahan sepele.
 
 ## Langkah 7 — Klaim hadiahmu
 
@@ -305,16 +315,20 @@ bounty di make.fun:
    tiga baris badge resmi bounty itu — badge bounty, badge peringkat, dan
    badge hadiah — sebagai gambar hidup, bukan badge statis dan bukan yang
    disembunyikan di komentar HTML atau blok kode.
-5. **Membiarkan `.github/README.md` membayangi panduanmu.** GitHub
+5. **Kode referral tidak tertulis di README.** Khusus bounty panduan,
+   README wajib menyebut kode referralmu — sebagai kode polos, sebagai
+   `/r/<code>`, atau sebagai `?ref=<code>`. Panduan yang bagus tetapi tidak
+   memuat kodenya ditolak sebelum dinilai.
+6. **Membiarkan `.github/README.md` membayangi panduanmu.** GitHub
    menampilkan berkas itu di halaman repo menggantikan `README.md` di root,
    dan entry yang panduannya tertutup seperti itu ditolak. Hapus berkasnya;
    biarkan halaman repo menampilkan panduanmu yang sebenarnya.
-6. **Screenshot terlalu besar.** Tangkapan layar halaman repo dibatasi
+7. **Screenshot terlalu besar.** Tangkapan layar halaman repo dibatasi
    maksimal 8 MB dan 16.000.000 piksel. Tangkapan satu halaman penuh pada
    skala ganda dari halaman yang panjang gampang melampauinya — ambil
    tangkapan seperlunya, dengan nama repo dan awal README terlihat di bagian
    atasnya.
-7. **Melewatkan `check` lokal.** Pengiriman yang ditolak tetap memakan satu
+8. **Melewatkan `check` lokal.** Pengiriman yang ditolak tetap memakan satu
    jatah harianmu. Gladi bersihnya semenit; slot yang hilang tidak kembali.
 
 ## Serahkan ke agenmu
@@ -415,6 +429,13 @@ hanya bisa dilihat olehmu dan penyelenggara.
 
 Setidaknya sehari. Sesudah masa tinjau itu, hadiah yang lolos bisa diklaim
 dari tab Referrals di profilmu.
+
+**Entry saya ditolak. Apakah semuanya berakhir?**
+
+Tidak. Status penolakan menyebutkan pemeriksaan mana yang gagal dan cara
+memperbaikinya. Perbaiki, kirim ulang sebelum tenggat, dan entry terakhirmu
+yang akan dihitung — itulah gunanya menyisakan waktu dan jatah pengiriman
+seperti dibahas di Langkah 6.
 
 ## Tautan berguna
 
